@@ -1,0 +1,108 @@
+@mixin button-center {
+  display: inline-block;
+  width: 100%;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+@mixin bounce-enter-active {
+  animation: bounce-in 0.25s;
+}
+@mixin bounce-leave-active {
+  animation: bounce-in 0.25s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    //transform: scale(0) translate3d(-55%, -65%, 0);
+    opacity: 0;
+  }
+  //50% {
+  //  //transform: scale(1.1) translate3d(-45%, -60%, 0);
+  //  opacity: 0.8;
+  //}
+  100% {
+    //transform: scale(1) translate3d(-50%, -50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes background-bounce-in {
+  0% {
+    //transform: scale(0) translate3d(-55%, -65%, 0);
+    opacity: 0;
+  }
+  100% {
+    //transform: scale(1) translate3d(-50%, -50%, 0);
+    opacity: 0.6;
+  }
+}
+
+.toast {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  .toast-mask {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.6;
+    //transition: all 0.4s;
+    animation: background-bounce-in 0.25s;
+    pointer-events: none;
+  }
+  .toast-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    @include bounce-enter-active;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: #fff;
+    padding: 28px 32px;
+    text-align: center;
+    .icon-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+    .header-avatar {
+      margin: 0 auto;
+      width: 100px;
+      height: 100px;
+    }
+    .wrap-title {
+      margin: 24px 0 16px;
+      font-size: 20px;
+      line-height: 20px;
+      color: rgb(38, 38, 38);
+      font-family: "Avenir-Medium";
+    }
+    .wrap-content {
+      margin: 0 auto 24px;
+      font-size: 16px;
+      color: rgb(140, 140, 140);
+      line-height: 24px;
+      .wrap-content-item {
+        word-break: break-word;
+      }
+    }
+    .wrap-confirmBtn {
+      @include button-center();
+      padding: 12px 0;
+      border-radius: 10px;
+      font-family: AppleSDGothicNeo-Bold,  Avenir-Heavy;
+    }
+    .wrap-cancelBtn {
+      @include button-center();
+      margin: 20px auto 0;
+      font-family: AppleSDGothicNeo-Bold,  Avenir-Heavy;
+    }
+  }
+}
