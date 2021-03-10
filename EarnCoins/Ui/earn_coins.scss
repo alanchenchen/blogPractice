@@ -1,0 +1,10 @@
+#earn-coins {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 48px);
+    background: #130c18;
+    .nav-bar {
+        background: $linear-black;
+        color: #fff;
+    }
+}
